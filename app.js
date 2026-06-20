@@ -1,3 +1,6 @@
+const SUPABASE_FUNCTION_URL =
+  "https://sowbvzagfcpymswsaeld.supabase.co/functions/v1/get-fixtures-today";
+
 const games = [
   {
     status: "AO VIVO • 62'",
@@ -30,13 +33,15 @@ const games = [
 
 function renderGames(list = games) {
   const grid = document.getElementById("gamesGrid");
+  if (!grid) return;
+
   grid.innerHTML = "";
 
   list.forEach(game => {
     grid.innerHTML += `
-      <div class="bg-white/10 border border-white/10 rounded-3xl p-5">
-        <p class="text-green-400 text-sm">${game.status}</p>
-        <h4 class="text-2xl font-bold mt-2">${game.teams}</h4>
+      <div class="bg-white/10 border border-white/10 rounded-3xl p-5 shadow-xl hover:-translate-y-1 transition">
+        <p class="text-cyan-300 text-sm font-bold">${game.status}</p>
+        <h4 class="text-2xl font-black mt-2">${game.teams}</h4>
         <p class="text-gray-300 mt-2">📺 ${game.tv} • ${game.country}</p>
         <p class="text-gray-400">🏆 ${game.league}</p>
 
@@ -46,11 +51,13 @@ function renderGames(list = games) {
           <div class="bg-black/30 rounded-xl p-3">2<br><b>${game.odds[2]}</b></div>
         </div>
 
-        <p class="mt-4 text-sm text-green-300">${game.trend}</p>
+        <p class="mt-4 text-sm text-cyan-300">${game.trend}</p>
 
         <div class="grid grid-cols-2 gap-2 mt-4">
-          <button class="bg-green-500 text-black py-3 rounded-xl font-bold">Onde assistir</button>
-          <button class="bg-white/10 border border-white/10 py-3 rounded-xl font-bold">Comparar odds</button>
+          <button class="neon-button py-3 rounded-xl font-black">Onde assistir</button>
+          <button class="bg-white/10 border border-white/10 py-3 rounded-xl font-bold">
+            Comparar odds
+          </button>
         </div>
       </div>
     `;
@@ -58,7 +65,10 @@ function renderGames(list = games) {
 }
 
 function searchGame() {
-  const q = document.getElementById("searchInput").value.toLowerCase();
+  const input = document.getElementById("searchInput");
+  if (!input) return;
+
+  const q = input.value.toLowerCase();
 
   const filtered = games.filter(g =>
     g.teams.toLowerCase().includes(q) ||
@@ -70,7 +80,8 @@ function searchGame() {
 }
 
 function setTab(button, title) {
-  document.getElementById("tabTitle").innerText = title;
+  const tabTitle = document.getElementById("tabTitle");
+  if (tabTitle) tabTitle.innerText = title;
 
   document.querySelectorAll(".tab").forEach(btn => {
     btn.classList.remove("active");
@@ -80,7 +91,24 @@ function setTab(button, title) {
 }
 
 function toggleMenu() {
-  document.getElementById("mobileMenu").classList.toggle("hidden");
+  const menu = document.getElementById("mobileMenu");
+  if (menu) menu.classList.toggle("hidden");
+}
+
+async function testSportmonks() {
+  try {
+    const response = await fetch(SUPABASE_FUNCTION_URL);
+    const data = await response.json();
+
+    console.log("Sportmonks API:", data);
+
+    if (data && data.data) {
+      console.log("API ligada com sucesso:", data.data.length, "registos");
+    }
+  } catch (error) {
+    console.error("Erro ao ligar à Sportmonks:", error);
+  }
 }
 
 renderGames();
+testSportmonks();

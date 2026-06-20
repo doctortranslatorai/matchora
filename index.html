@@ -10,15 +10,15 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body class="bg-white text-[#111111] font-sans">
+<body class="text-white font-sans">
 
-  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-red-100">
+  <header class="sticky top-0 z-50 bg-[#050816]/90 backdrop-blur border-b border-white/10">
     <div class="p-5 flex justify-between items-center">
-      <h1 class="text-2xl font-black text-red-600">⚽ MATCHORA™</h1>
+      <h1 class="text-2xl font-black text-white">⚽ MATCHORA™</h1>
 
-      <button onclick="toggleMenu()" class="md:hidden text-2xl text-red-600">☰</button>
+      <button onclick="toggleMenu()" class="md:hidden text-2xl text-cyan-300">☰</button>
 
-      <nav class="hidden md:flex gap-6 text-sm text-gray-700 font-semibold">
+      <nav class="hidden md:flex gap-6 text-sm text-gray-200 font-semibold">
         <a href="#">Hoje</a>
         <a href="#">Ao Vivo</a>
         <a href="#">Onde Assistir</a>
@@ -27,7 +27,7 @@
       </nav>
     </div>
 
-    <div id="mobileMenu" class="hidden md:hidden px-5 pb-5 space-y-3 text-gray-700 font-semibold">
+    <div id="mobileMenu" class="hidden md:hidden px-5 pb-5 space-y-3 text-gray-200 font-semibold">
       <a href="#" class="block">Hoje</a>
       <a href="#" class="block">Ao Vivo</a>
       <a href="#" class="block">Onde Assistir</a>
@@ -39,33 +39,34 @@
   <main class="px-5 py-10 max-w-7xl mx-auto">
 
     <section class="text-center">
-      <p class="text-red-600 font-bold">One Search. Every Match.</p>
+      <p class="inline-block bg-cyan-400 text-slate-950 px-4 py-2 rounded-xl font-bold shadow-lg shadow-cyan-500/40">
+        One Search. Every Match.
+      </p>
 
-      <h2 class="text-4xl md:text-6xl font-black mt-3 leading-tight text-[#111111]">
+      <h2 class="text-4xl md:text-6xl font-black mt-5 leading-tight text-white">
         Onde assistir, odds e futebol ao vivo num só lugar.
       </h2>
 
-      <p class="text-gray-600 mt-5 max-w-2xl mx-auto">
+      <p class="text-gray-300 mt-5 max-w-2xl mx-auto">
         A central global para descobrir transmissões, comparar odds e acompanhar jogos em tempo real.
       </p>
 
-      <div class="mt-8 bg-red-50 border border-red-100 rounded-3xl p-4 flex gap-3">
+      <div class="mt-8 bg-white/10 border border-white/15 rounded-3xl p-4 flex gap-3 shadow-2xl">
         <input 
           id="searchInput"
-          class="flex-1 bg-white border border-red-100 rounded-2xl outline-none px-4 text-[#111111]"
+          class="flex-1 bg-white/10 border border-white/10 rounded-2xl outline-none px-4 text-white placeholder-gray-300"
           placeholder="Pesquisar equipa, liga ou jogo..."
         />
 
-        <button onclick="searchGame()" class="bg-red-600 text-white px-6 py-3 rounded-2xl font-bold">
+        <button onclick="searchGame()" class="neon-button px-6 py-3 rounded-2xl font-bold">
           Pesquisar
         </button>
       </div>
     </section>
 
     <section class="mt-8 space-y-4">
-
       <div>
-        <p class="text-sm text-gray-500 mb-2">País</p>
+        <p class="text-sm text-gray-300 mb-2">País</p>
         <div class="flex gap-2 overflow-x-auto pb-2">
           <button class="chip">Portugal</button>
           <button class="chip">Brasil</button>
@@ -76,7 +77,7 @@
       </div>
 
       <div>
-        <p class="text-sm text-gray-500 mb-2">Liga</p>
+        <p class="text-sm text-gray-300 mb-2">Liga</p>
         <div class="flex gap-2 overflow-x-auto pb-2">
           <button class="chip">Liga Portugal</button>
           <button class="chip">Brasileirão</button>
@@ -87,7 +88,7 @@
       </div>
 
       <div>
-        <p class="text-sm text-gray-500 mb-2">Equipa</p>
+        <p class="text-sm text-gray-300 mb-2">Equipa</p>
         <div class="flex gap-2 overflow-x-auto pb-2">
           <button class="chip">Benfica</button>
           <button class="chip">Flamengo</button>
@@ -96,7 +97,6 @@
           <button class="chip">Sporting</button>
         </div>
       </div>
-
     </section>
 
     <section class="mt-10">
@@ -107,12 +107,12 @@
         <button onclick="setTab(this, 'Odds em Alta')" class="tab">Odds em Alta</button>
       </div>
 
-      <h3 id="tabTitle" class="text-3xl font-black mt-5 text-[#111111]">Jogos de Hoje</h3>
+      <h3 id="tabTitle" class="text-3xl font-black mt-5 text-white">Jogos de Hoje</h3>
 
       <div id="gamesGrid" class="grid md:grid-cols-3 gap-5 mt-6"></div>
     </section>
 
-    <section class="mt-14 bg-red-50 border border-red-100 rounded-3xl p-5 text-red-700 font-semibold">
+    <section class="mt-14 bg-yellow-400/10 border border-yellow-400/30 rounded-3xl p-5 text-yellow-200 font-semibold">
       ⚠️ As odds são apresentadas apenas para análise informativa. Aposta com responsabilidade.
     </section>
 

@@ -1,31 +1,139 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ao Vivo | MATCHORA™</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="style.css">
+  <title>Ao Vivo | MATCHORA™</title>
+  <meta name="description" content="MATCHORA™ Live — jogos ao vivo, eventos, odds e transmissões oficiais." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css?v=7" />
 </head>
 
-<body class="bg-[#050816] text-white">
+<body class="text-white font-sans">
 
-<div class="max-w-7xl mx-auto p-6">
+  <header class="bg-[#050816]/80 backdrop-blur border-b border-white/10">
+    <div class="max-w-7xl mx-auto p-5 flex justify-between items-center">
+      <a href="index.html">
+        <h1 class="text-2xl font-black">⚽ MATCHORA™</h1>
+        <p class="text-xs text-cyan-300 font-bold">Live Football Hub</p>
+      </a>
 
-<h1 class="text-4xl font-black">
-🔴 Jogos Ao Vivo
-</h1>
+      <nav class="hidden md:flex gap-6 text-sm text-gray-200 font-semibold">
+        <a href="index.html">Home</a>
+        <a href="index.html#jogos">Jogos</a>
+        <a href="index.html#odds">Odds</a>
+        <a href="index.html#ai">Matchora AI</a>
+        <a href="index.html#pro">Pro</a>
+      </nav>
+    </div>
+  </header>
 
-<p class="text-gray-400 mt-2">
-Partidas em tempo real.
-</p>
+  <main class="max-w-7xl mx-auto px-5 py-12">
 
-<div id="liveGames" class="grid md:grid-cols-3 gap-5 mt-8"></div>
+    <section>
+      <p class="inline-block bg-red-500 text-white px-4 py-2 rounded-xl font-black shadow-lg shadow-red-500/40">
+        🔴 Ao Vivo
+      </p>
 
-</div>
+      <h2 class="text-4xl md:text-6xl font-black mt-6">
+        Jogos em direto.
+      </h2>
 
-<script src="app.js"></script>
+      <p class="text-gray-300 mt-4 max-w-3xl text-lg">
+        Acompanha partidas ao vivo, estado do jogo, fonte oficial e alertas em tempo real.
+      </p>
+    </section>
+
+    <section class="grid md:grid-cols-3 gap-5 mt-10">
+
+      <div class="bg-white/10 border border-white/10 rounded-3xl p-6">
+        <div class="flex justify-between items-center">
+          <span class="text-red-400 font-black">AO VIVO • 62'</span>
+          <span class="bg-red-500/20 text-red-300 px-3 py-1 rounded-full text-xs font-black">LIVE</span>
+        </div>
+
+        <h3 class="text-2xl font-black mt-4">Benfica vs Porto</h3>
+
+        <div class="mt-5 bg-black/30 rounded-2xl p-5 text-center">
+          <p class="text-5xl font-black">1 - 1</p>
+          <p class="text-gray-400 mt-2">Intervalo/2ª parte</p>
+        </div>
+
+        <div class="mt-5 space-y-2 text-sm text-gray-300">
+          <p>🏆 Liga Portugal</p>
+          <p>📺 Fonte oficial por país</p>
+          <p>📊 Odds brevemente</p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2 mt-5">
+          <button class="neon-button py-3 rounded-xl font-black">Ver jogo</button>
+          <button class="bg-white/10 border border-white/10 py-3 rounded-xl font-bold">Alertar-me</button>
+        </div>
+      </div>
+
+      <div class="bg-white/10 border border-white/10 rounded-3xl p-6">
+        <div class="flex justify-between items-center">
+          <span class="text-red-400 font-black">AO VIVO • 38'</span>
+          <span class="bg-red-500/20 text-red-300 px-3 py-1 rounded-full text-xs font-black">LIVE</span>
+        </div>
+
+        <h3 class="text-2xl font-black mt-4">Celtic vs Rangers</h3>
+
+        <div class="mt-5 bg-black/30 rounded-2xl p-5 text-center">
+          <p class="text-5xl font-black">0 - 0</p>
+          <p class="text-gray-400 mt-2">1ª parte</p>
+        </div>
+
+        <div class="mt-5 space-y-2 text-sm text-gray-300">
+          <p>🏆 Premiership</p>
+          <p>📺 Fonte oficial por país</p>
+          <p>📊 Odds brevemente</p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2 mt-5">
+          <button class="neon-button py-3 rounded-xl font-black">Ver jogo</button>
+          <button class="bg-white/10 border border-white/10 py-3 rounded-xl font-bold">Alertar-me</button>
+        </div>
+      </div>
+
+      <div class="bg-white/10 border border-white/10 rounded-3xl p-6">
+        <div class="flex justify-between items-center">
+          <span class="text-red-400 font-black">AO VIVO • 74'</span>
+          <span class="bg-red-500/20 text-red-300 px-3 py-1 rounded-full text-xs font-black">LIVE</span>
+        </div>
+
+        <h3 class="text-2xl font-black mt-4">Flamengo vs Palmeiras</h3>
+
+        <div class="mt-5 bg-black/30 rounded-2xl p-5 text-center">
+          <p class="text-5xl font-black">2 - 1</p>
+          <p class="text-gray-400 mt-2">2ª parte</p>
+        </div>
+
+        <div class="mt-5 space-y-2 text-sm text-gray-300">
+          <p>🏆 Brasileirão</p>
+          <p>📺 Fonte oficial por país</p>
+          <p>📊 Odds brevemente</p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2 mt-5">
+          <button class="neon-button py-3 rounded-xl font-black">Ver jogo</button>
+          <button class="bg-white/10 border border-white/10 py-3 rounded-xl font-bold">Alertar-me</button>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="mt-12 bg-yellow-400/10 border border-yellow-400/30 rounded-3xl p-5 text-yellow-200 font-semibold">
+      ⚠️ A MATCHORA™ não transmite jogos. Apenas indica fontes oficiais, dados e estado dos jogos.
+    </section>
+
+  </main>
+
+  <footer class="mt-16 border-t border-white/10 p-8 text-center text-gray-400 bg-[#050816]/70">
+    <strong class="text-white">MATCHORA™</strong> — Live Football Hub.
+  </footer>
 
 </body>
 </html>

@@ -31,7 +31,9 @@ const demoGames = [
   }
 ];
 
+let allGames = [];
 let games = [...demoGames];
+let visibleCount = 12;
 
 function renderGames(list = games) {
   const grid = document.getElementById("gamesGrid");
@@ -39,7 +41,9 @@ function renderGames(list = games) {
 
   grid.innerHTML = "";
 
-  list.forEach(game => {
+  const visibleGames = list.slice(0, visibleCount);
+
+  visibleGames.forEach(game => {
     grid.innerHTML += `
       <div class="bg-white/10 border border-white/10 rounded-3xl p-5 shadow-xl hover:-translate-y-1 transition">
         <p class="text-cyan-300 text-sm font-bold">${game.status}</p>
@@ -64,6 +68,37 @@ function renderGames(list = games) {
       </div>
     `;
   });
+
+  renderLoadMoreButton(list.length);
+}
+
+function renderLoadMoreButton(total) {
+  let wrapper = document.getElementById("loadMoreWrapper");
+
+  if (!wrapper) {
+    wrapper = document.createElement("div");
+    wrapper.id = "loadMoreWrapper";
+    wrapper.className = "text-center mt-8";
+
+    const jogosSection = document.getElementById("jogos");
+    if (jogosSection) jogosSection.appendChild(wrapper);
+  }
+
+  if (visibleCount >= total) {
+    wrapper.innerHTML = "";
+    return;
+  }
+
+  wrapper.innerHTML = `
+    <button onclick="loadMoreGames()" class="neon-button px-8 py-4 rounded-2xl font-black">
+      Ver mais jogos
+    </button>
+  `;
+}
+
+function loadMoreGames() {
+  visibleCount += 12;
+  renderGames(games);
 }
 
 function searchGame() {
@@ -78,6 +113,7 @@ function searchGame() {
     g.league.toLowerCase().includes(q)
   );
 
+  visibleCount = 12;
   renderGames(filtered);
 }
 
@@ -129,8 +165,10 @@ function mapSportmonksToGames(data) {
     const startingAt = item.starting_at || item.startingAt || "";
 
     let time = "Hoje";
+
     if (startingAt) {
       const date = new Date(startingAt);
+
       if (!isNaN(date)) {
         time = date.toLocaleTimeString("pt-PT", {
           hour: "2-digit",
@@ -163,18 +201,33 @@ async function loadSportmonksGames() {
     const realGames = mapSportmonksToGames(data);
 
     if (realGames.length > 0) {
+      allGames = realGames;
       games = realGames;
+      visibleCount = 12;
+
       renderGames(games);
-      updateApiStatus(`✅ API ligada: ${realGames.length} registos reais carregados.`, "success");
+
+      updateApiStatus(
+        `✅ API ligada: ${realGames.length} jogos reais encontrados. A mostrar os primeiros 12.`,
+        "success"
+      );
     } else {
       games = [...demoGames];
+      visibleCount = 12;
       renderGames(games);
-      updateApiStatus("⚠️ API ligada, mas o plano grátis não devolveu jogos para este endpoint. A mostrar demo.", "warning");
+
+      updateApiStatus(
+        "⚠️ API ligada, mas o plano grátis não devolveu jogos para este endpoint. A mostrar demo.",
+        "warning"
+      );
     }
   } catch (error) {
     console.error("Erro Sportmonks:", error);
+
     games = [...demoGames];
+    visibleCount = 12;
     renderGames(games);
+
     updateApiStatus("❌ Erro ao ligar à Sportmonks. A mostrar demo.", "error");
   }
 }

@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MATCHORA™ v4 — One Search. Every Match.</title>
+  <title>MATCHORA™ — One Search. Every Match.</title>
+
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="bg-[#050816] text-white font-sans">
@@ -12,19 +14,24 @@
   <header class="sticky top-0 z-50 bg-[#050816]/90 backdrop-blur border-b border-white/10">
     <div class="p-5 flex justify-between items-center">
       <h1 class="text-2xl font-black">⚽ MATCHORA™</h1>
+
       <button onclick="toggleMenu()" class="md:hidden text-2xl">☰</button>
 
       <nav class="hidden md:flex gap-6 text-sm text-gray-300">
-        <a>Hoje</a><a>Ao Vivo</a><a>Onde Assistir</a><a>Odds</a><a>Pro</a>
+        <a href="#">Hoje</a>
+        <a href="#">Ao Vivo</a>
+        <a href="#">Onde Assistir</a>
+        <a href="#">Odds</a>
+        <a href="#">Pro</a>
       </nav>
     </div>
 
     <div id="mobileMenu" class="hidden md:hidden px-5 pb-5 space-y-3 text-gray-300">
-      <a class="block">Hoje</a>
-      <a class="block">Ao Vivo</a>
-      <a class="block">Onde Assistir</a>
-      <a class="block">Odds</a>
-      <a class="block">Pro</a>
+      <a href="#" class="block">Hoje</a>
+      <a href="#" class="block">Ao Vivo</a>
+      <a href="#" class="block">Onde Assistir</a>
+      <a href="#" class="block">Odds</a>
+      <a href="#" class="block">Pro</a>
     </div>
   </header>
 
@@ -32,12 +39,22 @@
 
     <section class="text-center">
       <p class="text-green-400 font-bold">One Search. Every Match.</p>
+
       <h2 class="text-4xl md:text-6xl font-black mt-3 leading-tight">
         Onde assistir, odds e futebol ao vivo num só lugar.
       </h2>
 
+      <p class="text-gray-400 mt-5 max-w-2xl mx-auto">
+        A central global para descobrir transmissões, comparar odds e acompanhar jogos em tempo real.
+      </p>
+
       <div class="mt-8 bg-white/10 border border-white/10 rounded-3xl p-4 flex gap-3">
-        <input id="searchInput" class="flex-1 bg-transparent outline-none px-3" placeholder="Pesquisar equipa, liga ou jogo..." />
+        <input 
+          id="searchInput"
+          class="flex-1 bg-transparent outline-none px-3"
+          placeholder="Pesquisar equipa, liga ou jogo..."
+        />
+
         <button onclick="searchGame()" class="bg-green-500 text-black px-6 py-3 rounded-2xl font-bold">
           Pesquisar
         </button>
@@ -81,10 +98,10 @@
 
     <section class="mt-10">
       <div class="flex gap-3 overflow-x-auto pb-3">
-        <button onclick="setTab('Hoje')" class="tab active">Hoje</button>
-        <button onclick="setTab('Ao Vivo')" class="tab">Ao Vivo</button>
-        <button onclick="setTab('Amanhã')" class="tab">Amanhã</button>
-        <button onclick="setTab('Odds em Alta')" class="tab">Odds em Alta</button>
+        <button onclick="setTab(this, 'Jogos de Hoje')" class="tab active">Hoje</button>
+        <button onclick="setTab(this, 'Jogos Ao Vivo')" class="tab">Ao Vivo</button>
+        <button onclick="setTab(this, 'Jogos de Amanhã')" class="tab">Amanhã</button>
+        <button onclick="setTab(this, 'Odds em Alta')" class="tab">Odds em Alta</button>
       </div>
 
       <h3 id="tabTitle" class="text-3xl font-black mt-5">Jogos de Hoje</h3>
@@ -160,18 +177,24 @@
 
     function searchGame() {
       const q = document.getElementById("searchInput").value.toLowerCase();
+
       const filtered = games.filter(g =>
         g.teams.toLowerCase().includes(q) ||
         g.country.toLowerCase().includes(q) ||
         g.league.toLowerCase().includes(q)
       );
+
       renderGames(filtered);
     }
 
-    function setTab(name) {
-      document.getElementById("tabTitle").innerText = name;
-      document.querySelectorAll(".tab").forEach(btn => btn.classList.remove("active"));
-      event.target.classList.add("active");
+    function setTab(button, title) {
+      document.getElementById("tabTitle").innerText = title;
+
+      document.querySelectorAll(".tab").forEach(btn => {
+        btn.classList.remove("active");
+      });
+
+      button.classList.add("active");
     }
 
     function toggleMenu() {
@@ -180,32 +203,6 @@
 
     renderGames();
   </script>
-
-  <style>
-    .chip {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 999px;
-      padding: 10px 16px;
-      white-space: nowrap;
-      color: #e5e7eb;
-    }
-
-    .tab {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 999px;
-      padding: 10px 18px;
-      white-space: nowrap;
-      color: #e5e7eb;
-      font-weight: 700;
-    }
-
-    .tab.active {
-      background: #22c55e;
-      color: #000;
-    }
-  </style>
 
 </body>
 </html>

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>MATCHORA™ — One Search. Every Match.</title>
+  <meta name="description" content="MATCHORA™ — Central global para descobrir onde assistir, comparar odds e acompanhar futebol em tempo real." />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="style.css" />
@@ -13,58 +14,62 @@
 <body class="text-white font-sans">
 
   <header class="sticky top-0 z-50 bg-[#050816]/90 backdrop-blur border-b border-white/10">
-    <div class="p-5 flex justify-between items-center">
-      <h1 class="text-2xl font-black text-white">⚽ MATCHORA™</h1>
+    <div class="max-w-7xl mx-auto p-5 flex justify-between items-center">
+      <div>
+        <h1 class="text-2xl font-black">⚽ MATCHORA™</h1>
+        <p class="text-xs text-cyan-300 font-bold">One Search. Every Match.</p>
+      </div>
 
       <button onclick="toggleMenu()" class="md:hidden text-2xl text-cyan-300">☰</button>
 
       <nav class="hidden md:flex gap-6 text-sm text-gray-200 font-semibold">
-        <a href="#">Hoje</a>
-        <a href="#">Ao Vivo</a>
-        <a href="#">Onde Assistir</a>
-        <a href="#">Odds</a>
-        <a href="#">Pro</a>
+        <a href="#jogos">Jogos</a>
+        <a href="#odds">Odds</a>
+        <a href="#canais">Canais</a>
+        <a href="#ai">Matchora AI</a>
+        <a href="#pro">Pro</a>
       </nav>
     </div>
 
     <div id="mobileMenu" class="hidden md:hidden px-5 pb-5 space-y-3 text-gray-200 font-semibold">
-      <a href="#" class="block">Hoje</a>
-      <a href="#" class="block">Ao Vivo</a>
-      <a href="#" class="block">Onde Assistir</a>
-      <a href="#" class="block">Odds</a>
-      <a href="#" class="block">Pro</a>
+      <a href="#jogos" class="block">Jogos</a>
+      <a href="#odds" class="block">Odds</a>
+      <a href="#canais" class="block">Canais</a>
+      <a href="#ai" class="block">Matchora AI</a>
+      <a href="#pro" class="block">Pro</a>
     </div>
   </header>
 
-  <main class="px-5 py-10 max-w-7xl mx-auto">
+  <main class="max-w-7xl mx-auto px-5 py-12">
 
     <section class="text-center">
-      <p class="inline-block bg-cyan-400 text-slate-950 px-4 py-2 rounded-xl font-bold shadow-lg shadow-cyan-500/40">
-        One Search. Every Match.
+      <p class="inline-block bg-cyan-400 text-slate-950 px-4 py-2 rounded-xl font-black shadow-lg shadow-cyan-500/40">
+        🌍 Global Football Discovery
       </p>
 
-      <h2 class="text-4xl md:text-6xl font-black mt-5 leading-tight text-white">
-        Onde assistir, odds e futebol ao vivo num só lugar.
+      <h2 class="text-4xl md:text-7xl font-black mt-6 leading-tight">
+        Todo o futebol mundial.<br>
+        <span class="text-cyan-300">Num só lugar.</span>
       </h2>
 
-      <p class="text-gray-300 mt-5 max-w-2xl mx-auto">
-        A central global para descobrir transmissões, comparar odds e acompanhar jogos em tempo real.
+      <p class="text-gray-300 mt-6 max-w-3xl mx-auto text-lg">
+        Descobre onde assistir, compara odds, acompanha jogos ao vivo e encontra transmissões oficiais em qualquer país.
       </p>
 
-      <div class="mt-8 bg-white/10 border border-white/15 rounded-3xl p-4 flex gap-3 shadow-2xl">
+      <div class="mt-8 bg-white/10 border border-white/15 rounded-3xl p-4 flex flex-col md:flex-row gap-3 shadow-2xl">
         <input 
           id="searchInput"
-          class="flex-1 bg-white/10 border border-white/10 rounded-2xl outline-none px-4 text-white placeholder-gray-300"
-          placeholder="Pesquisar equipa, liga ou jogo..."
+          class="flex-1 bg-white/10 border border-white/10 rounded-2xl outline-none px-4 py-3 text-white placeholder-gray-300"
+          placeholder="Ex: Benfica hoje, Flamengo agora, Real Madrid vs Barcelona..."
         />
 
-        <button onclick="searchGame()" class="neon-button px-6 py-3 rounded-2xl font-bold">
+        <button onclick="searchGame()" class="neon-button px-8 py-3 rounded-2xl font-black">
           Pesquisar
         </button>
       </div>
     </section>
 
-    <section class="mt-8 bg-white/5 border border-white/10 rounded-3xl p-5 shadow-2xl">
+    <section class="mt-10 bg-white/5 border border-white/10 rounded-3xl p-5 shadow-2xl">
       <div class="flex items-center justify-between mb-5 gap-3">
         <h3 class="text-xl font-black">Filtros rápidos</h3>
         <span class="text-sm text-cyan-300">Personaliza os jogos</span>
@@ -78,18 +83,18 @@
             <button class="chip">Brasil</button>
             <button class="chip">Espanha</button>
             <button class="chip">Inglaterra</button>
-            <button class="chip">França</button>
+            <button class="chip">Mundo</button>
           </div>
         </div>
 
         <div>
-          <p class="text-sm text-gray-300 mb-3">Liga</p>
+          <p class="text-sm text-gray-300 mb-3">Competição</p>
           <div class="flex flex-wrap gap-2">
-            <button class="chip">Liga Portugal</button>
-            <button class="chip">Brasileirão</button>
             <button class="chip">Champions</button>
             <button class="chip">Premier League</button>
             <button class="chip">La Liga</button>
+            <button class="chip">Brasileirão</button>
+            <button class="chip">Liga Portugal</button>
           </div>
         </div>
 
@@ -106,24 +111,103 @@
       </div>
     </section>
 
-    <section class="mt-8">
+    <section id="jogos" class="mt-10">
       <div class="bg-white/5 border border-white/10 rounded-3xl p-3 inline-flex gap-3 flex-wrap">
         <button onclick="setTab(this, 'Jogos de Hoje')" class="tab active">Hoje</button>
         <button onclick="setTab(this, 'Jogos Ao Vivo')" class="tab">Ao Vivo</button>
         <button onclick="setTab(this, 'Jogos de Amanhã')" class="tab">Amanhã</button>
-        <button onclick="setTab(this, 'Odds em Alta')" class="tab">Odds em Alta</button>
+        <button onclick="setTab(this, 'Odds em Movimento')" class="tab">Odds em Movimento</button>
       </div>
 
-      <h3 id="tabTitle" class="text-3xl font-black mt-8 text-white">Jogos de Hoje</h3>
-
+      <h3 id="tabTitle" class="text-3xl font-black mt-8">Jogos de Hoje</h3>
       <div id="gamesGrid" class="grid md:grid-cols-3 gap-5 mt-6"></div>
     </section>
 
-    <section class="mt-14 bg-yellow-400/10 border border-yellow-400/30 rounded-3xl p-5 text-yellow-200 font-semibold">
-      ⚠️ As odds são apresentadas apenas para análise informativa. Aposta com responsabilidade.
+    <section class="mt-16">
+      <h3 class="text-3xl font-black mb-6">🏆 Competições Populares</h3>
+
+      <div class="grid md:grid-cols-4 gap-4">
+        <div class="bg-white/10 border border-white/10 rounded-3xl p-5 font-black">Champions League</div>
+        <div class="bg-white/10 border border-white/10 rounded-3xl p-5 font-black">Premier League</div>
+        <div class="bg-white/10 border border-white/10 rounded-3xl p-5 font-black">La Liga</div>
+        <div class="bg-white/10 border border-white/10 rounded-3xl p-5 font-black">Brasileirão</div>
+        <div class="bg-white/10 border border-white/10 rounded-3xl p-5 font-black">Liga Portugal</div>
+        <div class="bg-white/10 border border-white/10 rounded-3xl p-5 font-black">Serie A</div>
+        <div class="bg-white/10 border border-white/10 rounded-3xl p-5 font-black">Bundesliga</div>
+        <div class="bg-white/10 border border-white/10 rounded-3xl p-5 font-black">Mundial</div>
+      </div>
+    </section>
+
+    <section id="ai" class="mt-16 grid md:grid-cols-2 gap-6">
+      <div class="bg-white/10 border border-white/10 rounded-3xl p-8">
+        <h3 class="text-3xl font-black">🤖 Matchora AI™</h3>
+        <p class="text-gray-300 mt-4">
+          Pergunta onde assistir, quais jogos estão ao vivo, que odds mudaram ou qual partida merece atenção.
+        </p>
+
+        <div class="mt-6 space-y-3">
+          <div class="bg-black/30 rounded-2xl p-4 text-gray-300">“Onde vejo o Sporting hoje em França?”</div>
+          <div class="bg-black/30 rounded-2xl p-4 text-gray-300">“Qual o melhor jogo da noite?”</div>
+          <div class="bg-black/30 rounded-2xl p-4 text-gray-300">“Que jogo tem odds mais equilibradas?”</div>
+        </div>
+      </div>
+
+      <div id="odds" class="bg-white/10 border border-white/10 rounded-3xl p-8">
+        <h3 class="text-3xl font-black">📊 Matchora Data Hub™</h3>
+        <p class="text-gray-300 mt-4">
+          Área preparada para ligar odds reais, estatísticas, forma recente, confrontos diretos e probabilidades inteligentes.
+        </p>
+
+        <div class="mt-6 bg-black/30 rounded-2xl p-4 text-cyan-300 font-mono text-sm overflow-x-auto">
+          /api/odds<br>
+          /api/fixtures<br>
+          /api/broadcasts
+        </div>
+      </div>
+    </section>
+
+    <section id="canais" class="mt-16">
+      <h3 class="text-3xl font-black mb-6">📺 Canais e Plataformas Oficiais</h3>
+
+      <div class="grid md:grid-cols-4 gap-4">
+        <div class="bg-white/10 border border-white/10 rounded-3xl p-5">TV oficial por país</div>
+        <div class="bg-white/10 border border-white/10 rounded-3xl p-5">Streaming autorizado</div>
+        <div class="bg-white/10 border border-white/10 rounded-3xl p-5">Rádio / live text</div>
+        <div class="bg-white/10 border border-white/10 rounded-3xl p-5">Links legais</div>
+      </div>
+
+      <div class="mt-8 bg-yellow-400/10 border border-yellow-400/30 rounded-3xl p-5 text-yellow-200 font-semibold">
+        ⚠️ A MATCHORA™ não transmite jogos nem partilha streams ilegais. Apenas indica fontes oficiais e dados autorizados.
+      </div>
+    </section>
+
+    <section id="pro" class="mt-16 grid md:grid-cols-3 gap-5">
+      <div class="bg-white/10 border border-white/10 rounded-3xl p-6">
+        <h4 class="text-2xl font-black">Free</h4>
+        <p class="text-gray-300 mt-2">Pesquisa básica e jogos principais.</p>
+        <p class="text-4xl font-black mt-6">0€</p>
+      </div>
+
+      <div class="bg-cyan-400 text-slate-950 rounded-3xl p-6 shadow-xl shadow-cyan-500/30">
+        <h4 class="text-2xl font-black">Pro</h4>
+        <p class="mt-2 font-semibold">Alertas, favoritos, odds avançadas e IA.</p>
+        <p class="text-4xl font-black mt-6">4,99€</p>
+      </div>
+
+      <div class="bg-white/10 border border-white/10 rounded-3xl p-6">
+        <h4 class="text-2xl font-black">API</h4>
+        <p class="text-gray-300 mt-2">Para sites, jornalistas, tipsters e media.</p>
+        <p class="text-4xl font-black mt-6">Custom</p>
+      </div>
     </section>
 
   </main>
+
+  <footer class="mt-16 border-t border-white/10 p-6 text-center text-gray-400">
+    MATCHORA™ — One Search. Every Match.  
+    <br>
+    <span class="text-sm">Watch smarter. Bet responsibly.</span>
+  </footer>
 
   <script src="app.js"></script>
 </body>

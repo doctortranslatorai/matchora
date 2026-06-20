@@ -8,7 +8,7 @@
   <meta name="description" content="MATCHORA™ — Central global para descobrir onde assistir, comparar odds e acompanhar futebol em tempo real." />
 
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css?v=6" />
+  <link rel="stylesheet" href="style.css?v=7" />
 </head>
 
 <body class="text-white font-sans">
@@ -24,8 +24,8 @@
 
       <nav class="hidden md:flex gap-6 text-sm text-gray-200 font-semibold">
         <a href="#jogos">Jogos</a>
+        <a href="#trending">Trending</a>
         <a href="#odds">Odds</a>
-        <a href="#canais">Canais</a>
         <a href="#ai">Matchora AI</a>
         <a href="#pro">Pro</a>
       </nav>
@@ -33,8 +33,8 @@
 
     <div id="mobileMenu" class="hidden md:hidden px-5 pb-5 space-y-3 text-gray-200 font-semibold">
       <a href="#jogos" class="block">Jogos</a>
+      <a href="#trending" class="block">Trending</a>
       <a href="#odds" class="block">Odds</a>
-      <a href="#canais" class="block">Canais</a>
       <a href="#ai" class="block">Matchora AI</a>
       <a href="#pro" class="block">Pro</a>
     </div>
@@ -69,6 +69,29 @@
       </div>
     </section>
 
+    <section class="grid md:grid-cols-5 gap-4 mt-10">
+      <div class="bg-white/10 border border-white/10 rounded-3xl p-5 text-center">
+        <p class="text-3xl font-black text-cyan-300">1000+</p>
+        <p class="text-sm text-gray-300 font-bold">Ligas</p>
+      </div>
+      <div class="bg-white/10 border border-white/10 rounded-3xl p-5 text-center">
+        <p class="text-3xl font-black text-cyan-300">200+</p>
+        <p class="text-sm text-gray-300 font-bold">Países</p>
+      </div>
+      <div class="bg-white/10 border border-white/10 rounded-3xl p-5 text-center">
+        <p class="text-3xl font-black text-cyan-300">500+</p>
+        <p class="text-sm text-gray-300 font-bold">Canais</p>
+      </div>
+      <div class="bg-white/10 border border-white/10 rounded-3xl p-5 text-center">
+        <p class="text-3xl font-black text-cyan-300">24/7</p>
+        <p class="text-sm text-gray-300 font-bold">Live Data</p>
+      </div>
+      <div class="bg-white/10 border border-white/10 rounded-3xl p-5 text-center">
+        <p class="text-3xl font-black text-cyan-300">AI</p>
+        <p class="text-sm text-gray-300 font-bold">Insights</p>
+      </div>
+    </section>
+
     <section class="mt-10 bg-white/5 border border-white/10 rounded-3xl p-5 shadow-2xl">
       <div class="flex items-center justify-between mb-5 gap-3">
         <h3 class="text-xl font-black">Filtros rápidos</h3>
@@ -79,11 +102,11 @@
         <div>
           <p class="text-sm text-gray-300 mb-3">País</p>
           <div class="flex flex-wrap gap-2">
-            <button class="chip">Portugal</button>
-            <button class="chip">Brasil</button>
-            <button class="chip">Espanha</button>
-            <button class="chip">Inglaterra</button>
-            <button class="chip">Mundo</button>
+            <button class="chip">🇵🇹 Portugal</button>
+            <button class="chip">🇧🇷 Brasil</button>
+            <button class="chip">🇪🇸 Espanha</button>
+            <button class="chip">🏴 Inglaterra</button>
+            <button class="chip">🌍 Mundo</button>
           </div>
         </div>
 
@@ -111,6 +134,31 @@
       </div>
     </section>
 
+    <section id="trending" class="mt-10 grid md:grid-cols-2 gap-6">
+      <div class="bg-white/10 border border-white/10 rounded-3xl p-6">
+        <h3 class="text-2xl font-black">🔥 Trending Agora</h3>
+        <div class="mt-5 space-y-3 text-gray-200 font-bold">
+          <div class="bg-black/30 rounded-2xl p-4">1. Real Madrid vs Barcelona</div>
+          <div class="bg-black/30 rounded-2xl p-4">2. Benfica vs Porto</div>
+          <div class="bg-black/30 rounded-2xl p-4">3. Flamengo vs Palmeiras</div>
+          <div class="bg-black/30 rounded-2xl p-4">4. Manchester City vs Liverpool</div>
+        </div>
+      </div>
+
+      <div id="ai" class="bg-white/10 border border-white/10 rounded-3xl p-6">
+        <h3 class="text-2xl font-black">🤖 Matchora AI™</h3>
+        <p class="text-gray-300 mt-3">
+          Pesquisa inteligente para transmissões, odds, favoritos e jogos recomendados.
+        </p>
+        <div class="mt-5 bg-black/30 rounded-2xl p-4 text-cyan-300 font-bold">
+          “Onde vejo o Sporting hoje em França?”
+        </div>
+        <div class="mt-3 bg-black/30 rounded-2xl p-4 text-cyan-300 font-bold">
+          “Qual jogo tem odds mais equilibradas?”
+        </div>
+      </div>
+    </section>
+
     <section id="jogos" class="mt-10">
       <div class="bg-white/5 border border-white/10 rounded-3xl p-3 inline-flex gap-3 flex-wrap">
         <button onclick="setTab(this, 'Jogos de Hoje')" class="tab active">Hoje</button>
@@ -127,14 +175,56 @@
       🔄 A testar ligação à Sportmonks API...
     </section>
 
+    <section id="odds" class="mt-16 bg-white/10 border border-white/10 rounded-3xl p-8">
+      <h3 class="text-3xl font-black">📊 Matchora Data Hub™</h3>
+      <p class="text-gray-300 mt-4">
+        Preparado para odds reais, estatísticas, forma recente, confrontos diretos, probabilidades IA e canais oficiais por país.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-4 mt-6">
+        <div class="bg-black/30 rounded-2xl p-5">
+          <h4 class="font-black text-cyan-300">Odds</h4>
+          <p class="text-gray-300 text-sm mt-2">Comparação entre mercados e operadores autorizados.</p>
+        </div>
+        <div class="bg-black/30 rounded-2xl p-5">
+          <h4 class="font-black text-cyan-300">Transmissões</h4>
+          <p class="text-gray-300 text-sm mt-2">Canais oficiais por país e disponibilidade regional.</p>
+        </div>
+        <div class="bg-black/30 rounded-2xl p-5">
+          <h4 class="font-black text-cyan-300">Insights IA</h4>
+          <p class="text-gray-300 text-sm mt-2">Probabilidades, tendência e contexto do jogo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="pro" class="mt-16 grid md:grid-cols-3 gap-5">
+      <div class="bg-white/10 border border-white/10 rounded-3xl p-6">
+        <h4 class="text-2xl font-black">Free</h4>
+        <p class="text-gray-300 mt-2">Jogos, pesquisa e canais principais.</p>
+        <p class="text-4xl font-black mt-6">0€</p>
+      </div>
+
+      <div class="bg-cyan-400 text-slate-950 rounded-3xl p-6 shadow-xl shadow-cyan-500/30">
+        <h4 class="text-2xl font-black">Pro</h4>
+        <p class="mt-2 font-semibold">Alertas, favoritos, odds avançadas e IA.</p>
+        <p class="text-4xl font-black mt-6">4,99€</p>
+      </div>
+
+      <div class="bg-white/10 border border-white/10 rounded-3xl p-6">
+        <h4 class="text-2xl font-black">API</h4>
+        <p class="text-gray-300 mt-2">Para sites, jornalistas, tipsters e media.</p>
+        <p class="text-4xl font-black mt-6">Custom</p>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="mt-16 border-t border-white/10 p-6 text-center text-gray-400">
-    MATCHORA™ — One Search. Every Match.
+  <footer class="mt-16 border-t border-white/10 p-8 text-center text-gray-400 bg-[#050816]/70">
+    <strong class="text-white">MATCHORA™</strong> — One Search. Every Match.
     <br>
-    <span class="text-sm">Watch smarter. Bet responsibly.</span>
+    <span class="text-sm">Watch smarter. Bet responsibly. A MATCHORA™ não transmite jogos nem partilha streams ilegais.</span>
   </footer>
 
-  <script src="app.js?v=7"></script>
+  <script src="app.js?v=8"></script>
 </body>
 </html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Favoritos | MATCHORA™</title>
+  <meta name="description" content="MATCHORA™ Favoritos — equipas, ligas, jogos guardados e alertas." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css?v=7" />
+</head>
+
+<body class="text-white font-sans">
+
+  <header class="bg-[#050816]/80 backdrop-blur border-b border-white/10">
+    <div class="max-w-7xl mx-auto p-5 flex justify-between items-center">
+      <a href="index.html">
+        <h1 class="text-2xl font-black">⚽ MATCHORA™</h1>
+        <p class="text-xs text-cyan-300 font-bold">Your Football Hub</p>
+      </a>
+
+      <nav class="hidden md:flex gap-6 text-sm text-gray-200 font-semibold">
+        <a href="index.html">Home</a>
+        <a href="live.html">Ao Vivo</a>
+        <a href="odds.html">Odds</a>
+        <a href="ai.html">Matchora AI</a>
+        <a href="index.html#pro">Pro</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-5 py-12">
+
+    <section>
+      <p class="inline-block bg-cyan-400 text-slate-950 px-4 py-2 rounded-xl font-black">
+        ⭐ Favoritos
+      </p>
+
+      <h2 class="text-4xl md:text-6xl font-black mt-6">
+        A tua central de futebol.
+      </h2>
+
+      <p class="text-gray-300 mt-4 max-w-3xl text-lg">
+        Guarda equipas, ligas e jogos para receber alertas personalizados no futuro.
+      </p>
+    </section>
+
+    <section class="grid md:grid-cols-3 gap-5 mt-10">
+      <div class="bg-white/10 border border-white/10 rounded-3xl p-6">
+        <h3 class="text-2xl font-black">⭐ Equipas favoritas</h3>
+        <div class="mt-5 space-y-3">
+          <div class="bg-black/30 rounded-2xl p-4 font-bold">Benfica</div>
+          <div class="bg-black/30 rounded-2xl p-4 font-bold">Flamengo</div>
+          <div class="bg-black/30 rounded-2xl p-4 font-bold">Real Madrid</div>
+        </div>
+      </div>
+
+      <div class="bg-white/10 border border-white/10 rounded-3xl p-6">
+        <h3 class="text-2xl font-black">🏆 Ligas favoritas</h3>
+        <div class="mt-5 space-y-3">
+          <div class="bg-black/30 rounded-2xl p-4 font-bold">Champions League</div>
+          <div class="bg-black/30 rounded-2xl p-4 font-bold">Liga Portugal</div>
+          <div class="bg-black/30 rounded-2xl p-4 font-bold">Brasileirão</div>
+        </div>
+      </div>
+
+      <div class="bg-white/10 border border-white/10 rounded-3xl p-6">
+        <h3 class="text-2xl font-black">🔔 Alertas futuros</h3>
+        <div class="mt-5 space-y-3">
+          <div class="bg-black/30 rounded-2xl p-4 font-bold">Jogo começa em 15 min</div>
+          <div class="bg-black/30 rounded-2xl p-4 font-bold">Canal confirmado</div>
+          <div class="bg-black/30 rounded-2xl p-4 font-bold">Odd mudou</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-10 bg-white/10 border border-white/10 rounded-3xl p-8">
+      <h3 class="text-3xl font-black">Jogos guardados</h3>
+
+      <div class="grid md:grid-cols-3 gap-5 mt-6">
+        <div class="bg-black/30 rounded-3xl p-5">
+          <p class="text-cyan-300 font-black">Hoje • 20:30</p>
+          <h4 class="text-2xl font-black mt-2">Benfica vs Porto</h4>
+          <p class="text-gray-300 mt-2">📺 Fonte oficial por país</p>
+          <button class="neon-button mt-5 w-full py-3 rounded-xl font-black">Ver detalhes</button>
+        </div>
+
+        <div class="bg-black/30 rounded-3xl p-5">
+          <p class="text-cyan-300 font-black">Hoje • 21:00</p>
+          <h4 class="text-2xl font-black mt-2">Flamengo vs Palmeiras</h4>
+          <p class="text-gray-300 mt-2">📺 Fonte oficial por país</p>
+          <button class="neon-button mt-5 w-full py-3 rounded-xl font-black">Ver detalhes</button>
+        </div>
+
+        <div class="bg-black/30 rounded-3xl p-5">
+          <p class="text-cyan-300 font-black">Amanhã • 19:45</p>
+          <h4 class="text-2xl font-black mt-2">Real Madrid vs Barcelona</h4>
+          <p class="text-gray-300 mt-2">📺 Fonte oficial por país</p>
+          <button class="neon-button mt-5 w-full py-3 rounded-xl font-black">Ver detalhes</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-10 bg-cyan-400/10 border border-cyan-400/30 rounded-3xl p-6">
+      <h3 class="text-2xl font-black">Conta MATCHORA™</h3>
+      <p class="text-gray-300 mt-3">
+        Esta área será ligada ao Supabase Auth para guardar favoritos reais por utilizador.
+      </p>
+      <button class="mt-5 bg-white/10 border border-white/10 px-6 py-3 rounded-2xl font-black">
+        Login brevemente
+      </button>
+    </section>
+
+  </main>
+
+  <footer class="mt-16 border-t border-white/10 p-8 text-center text-gray-400 bg-[#050816]/70">
+    <strong class="text-white">MATCHORA™</strong> — Your Football Hub.
+  </footer>
+
+</body>
+</html>

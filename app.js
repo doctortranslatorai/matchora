@@ -8,26 +8,26 @@ const demoGames = [
     tv: "Canal oficial",
     country: "Portugal",
     league: "Liga Portugal",
-    odds: ["2.10", "3.40", "3.20"],
-    trend: "🔥 Odd Benfica caiu de 2.30 para 2.10"
+    time: "20:30",
+    trend: "Fixture demo"
   },
   {
-    status: "HOJE • 21:00",
+    status: "HOJE",
     teams: "Flamengo vs Palmeiras",
     tv: "Canal oficial",
     country: "Brasil",
     league: "Brasileirão",
-    odds: ["2.45", "3.10", "2.80"],
-    trend: "⚖️ Jogo equilibrado"
+    time: "21:00",
+    trend: "Fixture demo"
   },
   {
-    status: "AMANHÃ • 19:45",
+    status: "AMANHÃ",
     teams: "Real Madrid vs Barcelona",
     tv: "Canal oficial",
     country: "Espanha",
     league: "La Liga",
-    odds: ["2.20", "3.60", "2.95"],
-    trend: "📡 Disponível em vários países"
+    time: "19:45",
+    trend: "Fixture demo"
   }
 ];
 
@@ -46,23 +46,35 @@ function renderGames(list = games) {
   visibleGames.forEach(game => {
     grid.innerHTML += `
       <div class="bg-white/10 border border-white/10 rounded-3xl p-5 shadow-xl hover:-translate-y-1 transition">
-        <p class="text-cyan-300 text-sm font-bold">${game.status}</p>
-        <h4 class="text-2xl font-black mt-2">${game.teams}</h4>
-        <p class="text-gray-300 mt-2">📺 ${game.tv} • ${game.country}</p>
-        <p class="text-gray-400">🏆 ${game.league}</p>
-
-        <div class="grid grid-cols-3 gap-2 mt-4 text-center">
-          <div class="bg-black/30 rounded-xl p-3">1<br><b>${game.odds[0]}</b></div>
-          <div class="bg-black/30 rounded-xl p-3">X<br><b>${game.odds[1]}</b></div>
-          <div class="bg-black/30 rounded-xl p-3">2<br><b>${game.odds[2]}</b></div>
+        <div class="flex justify-between items-start gap-3">
+          <p class="text-cyan-300 text-sm font-black">${game.status}</p>
+          <span class="bg-cyan-400/10 border border-cyan-400/30 text-cyan-200 px-3 py-1 rounded-full text-xs font-black">
+            Fixture real
+          </span>
         </div>
 
-        <p class="mt-4 text-sm text-cyan-300">${game.trend}</p>
+        <h4 class="text-2xl font-black mt-3 leading-tight">${game.teams}</h4>
 
-        <div class="grid grid-cols-2 gap-2 mt-4">
-          <button class="neon-button py-3 rounded-xl font-black">Onde assistir</button>
-          <button class="bg-white/10 border border-white/10 py-3 rounded-xl font-bold">
-            Comparar odds
+        <div class="mt-4 space-y-2 text-sm">
+          <p class="text-gray-300">⏰ ${game.time || "Horário por confirmar"}</p>
+          <p class="text-gray-300">📺 ${game.tv} • ${game.country}</p>
+          <p class="text-gray-400">🏆 ${game.league}</p>
+        </div>
+
+        <div class="mt-4 bg-black/30 border border-white/10 rounded-2xl p-4 text-center">
+          <p class="text-cyan-300 font-black">Odds brevemente</p>
+          <p class="text-gray-400 text-sm mt-1">Mercados 1X2, golos e ambas marcam.</p>
+        </div>
+
+        <p class="mt-4 text-sm text-cyan-300">✅ ${game.trend}</p>
+
+        <div class="grid grid-cols-3 gap-2 mt-4">
+          <button class="neon-button py-3 rounded-xl font-black text-sm">Onde assistir</button>
+          <button class="bg-white/10 border border-white/10 py-3 rounded-xl font-bold text-sm">
+            Alertar-me
+          </button>
+          <button class="bg-white/10 border border-white/10 py-3 rounded-xl font-bold text-sm">
+            Detalhes
           </button>
         </div>
       </div>
@@ -164,7 +176,7 @@ function mapSportmonksToGames(data) {
     const status = item.state?.name || item.status || "Agendado";
     const startingAt = item.starting_at || item.startingAt || "";
 
-    let time = "Hoje";
+    let time = "Horário por confirmar";
 
     if (startingAt) {
       const date = new Date(startingAt);
@@ -178,13 +190,13 @@ function mapSportmonksToGames(data) {
     }
 
     return {
-      status: `${status} • ${time}`,
+      status,
       teams: name,
       tv: "Fonte oficial por país",
       country: "Global",
       league,
-      odds: ["API", "API", "API"],
-      trend: "✅ Dados reais via Sportmonks"
+      time,
+      trend: "Dados reais via Sportmonks"
     };
   });
 }

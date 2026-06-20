@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Matchora AI | MATCHORA™</title>
+  <meta name="description" content="MATCHORA™ AI — assistente inteligente para jogos, transmissões, odds e recomendações." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css?v=7" />
+</head>
+
+<body class="text-white font-sans">
+
+  <header class="bg-[#050816]/80 backdrop-blur border-b border-white/10">
+    <div class="max-w-7xl mx-auto p-5 flex justify-between items-center">
+      <a href="index.html">
+        <h1 class="text-2xl font-black">⚽ MATCHORA™</h1>
+        <p class="text-xs text-cyan-300 font-bold">AI Football Assistant</p>
+      </a>
+
+      <nav class="hidden md:flex gap-6 text-sm text-gray-200 font-semibold">
+        <a href="index.html">Home</a>
+        <a href="live.html">Ao Vivo</a>
+        <a href="odds.html">Odds</a>
+        <a href="index.html#jogos">Jogos</a>
+        <a href="index.html#pro">Pro</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-5 py-12">
+
+    <section class="text-center">
+      <p class="inline-block bg-cyan-400 text-slate-950 px-4 py-2 rounded-xl font-black">
+        🤖 Matchora AI™
+      </p>
+
+      <h2 class="text-4xl md:text-6xl font-black mt-6">
+        Pergunta sobre qualquer jogo.
+      </h2>
+
+      <p class="text-gray-300 mt-4 max-w-3xl mx-auto text-lg">
+        Descobre onde assistir, que jogos estão em destaque, odds futuras e recomendações inteligentes.
+      </p>
+
+      <div class="mt-8 bg-white/10 border border-white/15 rounded-3xl p-4 flex flex-col md:flex-row gap-3">
+        <input 
+          id="aiInput"
+          class="flex-1 bg-white/10 border border-white/10 rounded-2xl outline-none px-4 py-3 text-white placeholder-gray-300"
+          placeholder="Ex: Onde vejo o Benfica hoje?"
+        />
+
+        <button onclick="askAI()" class="neon-button px-8 py-3 rounded-2xl font-black">
+          Perguntar
+        </button>
+      </div>
+    </section>
+
+    <section class="grid md:grid-cols-3 gap-4 mt-10">
+      <button onclick="quickAsk('Onde vejo o Sporting hoje?')" class="bg-white/10 border border-white/10 rounded-3xl p-5 text-left font-bold">
+        Onde vejo o Sporting hoje?
+      </button>
+      <button onclick="quickAsk('Qual o melhor jogo da noite?')" class="bg-white/10 border border-white/10 rounded-3xl p-5 text-left font-bold">
+        Qual o melhor jogo da noite?
+      </button>
+      <button onclick="quickAsk('Que jogo tem odds mais equilibradas?')" class="bg-white/10 border border-white/10 rounded-3xl p-5 text-left font-bold">
+        Que jogo tem odds mais equilibradas?
+      </button>
+    </section>
+
+    <section class="mt-10 bg-white/10 border border-white/10 rounded-3xl p-8">
+      <h3 class="text-2xl font-black">Resposta da Matchora AI</h3>
+
+      <div id="aiAnswer" class="mt-5 bg-black/30 rounded-2xl p-5 text-gray-300 leading-relaxed">
+        Faz uma pergunta para receber uma resposta inteligente.
+      </div>
+    </section>
+
+    <section class="mt-10 bg-yellow-400/10 border border-yellow-400/30 rounded-3xl p-5 text-yellow-200 font-semibold">
+      ⚠️ A Matchora AI fornece informação desportiva e análise. Não garante resultados e não incentiva apostas irresponsáveis.
+    </section>
+
+  </main>
+
+  <footer class="mt-16 border-t border-white/10 p-8 text-center text-gray-400 bg-[#050816]/70">
+    <strong class="text-white">MATCHORA™</strong> — AI Football Assistant.
+  </footer>
+
+  <script>
+    function quickAsk(text) {
+      document.getElementById("aiInput").value = text;
+      askAI();
+    }
+
+    function askAI() {
+      const input = document.getElementById("aiInput").value.trim();
+      const answer = document.getElementById("aiAnswer");
+
+      if (!input) {
+        answer.innerHTML = "Escreve uma pergunta sobre jogos, transmissões ou odds.";
+        return;
+      }
+
+      answer.innerHTML = `
+        <p><strong class="text-cyan-300">Pergunta:</strong> ${input}</p>
+        <br>
+        <p>
+          A Matchora AI está preparada para analisar jogos, canais oficiais, horários, odds e tendências.
+          Nesta versão inicial, a resposta é simulada.
+        </p>
+        <br>
+        <p>
+          Sugestão: pesquisa o jogo na página inicial para veres fixtures reais ligadas à Sportmonks.
+        </p>
+      `;
+    }
+  </script>
+
+</body>
+</html>

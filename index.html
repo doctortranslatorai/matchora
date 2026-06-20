@@ -8,7 +8,7 @@
   <meta name="description" content="MATCHORA™ — Central global para descobrir onde assistir, comparar odds e acompanhar futebol em tempo real." />
 
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=6" />
 </head>
 
 <body class="text-white font-sans">
@@ -123,92 +123,18 @@
       <div id="gamesGrid" class="grid md:grid-cols-3 gap-5 mt-6"></div>
     </section>
 
-    <section class="mt-16">
-      <h3 class="text-3xl font-black mb-6">🏆 Competições Populares</h3>
-
-      <div class="grid md:grid-cols-4 gap-4">
-        <div class="bg-white/10 border border-white/10 rounded-3xl p-5 font-black">Champions League</div>
-        <div class="bg-white/10 border border-white/10 rounded-3xl p-5 font-black">Premier League</div>
-        <div class="bg-white/10 border border-white/10 rounded-3xl p-5 font-black">La Liga</div>
-        <div class="bg-white/10 border border-white/10 rounded-3xl p-5 font-black">Brasileirão</div>
-        <div class="bg-white/10 border border-white/10 rounded-3xl p-5 font-black">Liga Portugal</div>
-        <div class="bg-white/10 border border-white/10 rounded-3xl p-5 font-black">Serie A</div>
-        <div class="bg-white/10 border border-white/10 rounded-3xl p-5 font-black">Bundesliga</div>
-        <div class="bg-white/10 border border-white/10 rounded-3xl p-5 font-black">Mundial</div>
-      </div>
-    </section>
-
-    <section id="ai" class="mt-16 grid md:grid-cols-2 gap-6">
-      <div class="bg-white/10 border border-white/10 rounded-3xl p-8">
-        <h3 class="text-3xl font-black">🤖 Matchora AI™</h3>
-        <p class="text-gray-300 mt-4">
-          Pergunta onde assistir, quais jogos estão ao vivo, que odds mudaram ou qual partida merece atenção.
-        </p>
-
-        <div class="mt-6 space-y-3">
-          <div class="bg-black/30 rounded-2xl p-4 text-gray-300">“Onde vejo o Sporting hoje em França?”</div>
-          <div class="bg-black/30 rounded-2xl p-4 text-gray-300">“Qual o melhor jogo da noite?”</div>
-          <div class="bg-black/30 rounded-2xl p-4 text-gray-300">“Que jogo tem odds mais equilibradas?”</div>
-        </div>
-      </div>
-
-      <div id="odds" class="bg-white/10 border border-white/10 rounded-3xl p-8">
-        <h3 class="text-3xl font-black">📊 Matchora Data Hub™</h3>
-        <p class="text-gray-300 mt-4">
-          Área preparada para ligar odds reais, estatísticas, forma recente, confrontos diretos e probabilidades inteligentes.
-        </p>
-
-        <div class="mt-6 bg-black/30 rounded-2xl p-4 text-cyan-300 font-mono text-sm overflow-x-auto">
-          /api/odds<br>
-          /api/fixtures<br>
-          /api/broadcasts
-        </div>
-      </div>
-    </section>
-
-    <section id="canais" class="mt-16">
-      <h3 class="text-3xl font-black mb-6">📺 Canais e Plataformas Oficiais</h3>
-
-      <div class="grid md:grid-cols-4 gap-4">
-        <div class="bg-white/10 border border-white/10 rounded-3xl p-5">TV oficial por país</div>
-        <div class="bg-white/10 border border-white/10 rounded-3xl p-5">Streaming autorizado</div>
-        <div class="bg-white/10 border border-white/10 rounded-3xl p-5">Rádio / live text</div>
-        <div class="bg-white/10 border border-white/10 rounded-3xl p-5">Links legais</div>
-      </div>
-
-      <div class="mt-8 bg-yellow-400/10 border border-yellow-400/30 rounded-3xl p-5 text-yellow-200 font-semibold">
-        ⚠️ A MATCHORA™ não transmite jogos nem partilha streams ilegais. Apenas indica fontes oficiais e dados autorizados.
-      </div>
-    </section>
-
-    <section id="pro" class="mt-16 grid md:grid-cols-3 gap-5">
-      <div class="bg-white/10 border border-white/10 rounded-3xl p-6">
-        <h4 class="text-2xl font-black">Free</h4>
-        <p class="text-gray-300 mt-2">Pesquisa básica e jogos principais.</p>
-        <p class="text-4xl font-black mt-6">0€</p>
-      </div>
-
-      <div class="bg-cyan-400 text-slate-950 rounded-3xl p-6 shadow-xl shadow-cyan-500/30">
-        <h4 class="text-2xl font-black">Pro</h4>
-        <p class="mt-2 font-semibold">Alertas, favoritos, odds avançadas e IA.</p>
-        <p class="text-4xl font-black mt-6">4,99€</p>
-      </div>
-
-      <div class="bg-white/10 border border-white/10 rounded-3xl p-6">
-        <h4 class="text-2xl font-black">API</h4>
-        <p class="text-gray-300 mt-2">Para sites, jornalistas, tipsters e media.</p>
-        <p class="text-4xl font-black mt-6">Custom</p>
-      </div>
+    <section id="apiStatus" class="mt-8 bg-cyan-400/10 border border-cyan-400/30 rounded-3xl p-5 text-cyan-200 font-semibold">
+      🔄 A testar ligação à Sportmonks API...
     </section>
 
   </main>
 
   <footer class="mt-16 border-t border-white/10 p-6 text-center text-gray-400">
-    MATCHORA™ — One Search. Every Match.  
+    MATCHORA™ — One Search. Every Match.
     <br>
     <span class="text-sm">Watch smarter. Bet responsibly.</span>
   </footer>
 
-  <script src="app.js"></script>
+  <script src="app.js?v=7"></script>
 </body>
 </html>

@@ -35,6 +35,17 @@ let allGames = [];
 let games = [...demoGames];
 let visibleCount = 12;
 
+function createMatchUrl(game) {
+  const params = new URLSearchParams({
+    name: game.teams,
+    time: game.time || "A confirmar",
+    league: game.league || "Liga",
+    status: game.status || "Agendado"
+  });
+
+  return `match.html?${params.toString()}`;
+}
+
 function renderGames(list = games) {
   const grid = document.getElementById("gamesGrid");
   if (!grid) return;
@@ -44,6 +55,8 @@ function renderGames(list = games) {
   const visibleGames = list.slice(0, visibleCount);
 
   visibleGames.forEach(game => {
+    const detailsUrl = createMatchUrl(game);
+
     grid.innerHTML += `
       <div class="bg-white/10 border border-white/10 rounded-3xl p-5 shadow-xl hover:-translate-y-1 transition">
         <div class="flex justify-between items-start gap-3">
@@ -73,9 +86,9 @@ function renderGames(list = games) {
           <button class="bg-white/10 border border-white/10 py-3 rounded-xl font-bold text-sm">
             Alertar-me
           </button>
-          <button class="bg-white/10 border border-white/10 py-3 rounded-xl font-bold text-sm">
+          <a href="${detailsUrl}" class="bg-white/10 border border-white/10 py-3 rounded-xl font-bold text-sm text-center">
             Detalhes
-          </button>
+          </a>
         </div>
       </div>
     `;
@@ -150,21 +163,6 @@ function updateApiStatus(message, type = "info") {
   if (!box) return;
 
   box.textContent = message;
-
-  if (type === "success") {
-    box.className =
-      "mt-8 bg-green-400/10 border border-green-400/30 rounded-3xl p-5 text-green-200 font-semibold";
-  }
-
-  if (type === "warning") {
-    box.className =
-      "mt-8 bg-yellow-400/10 border border-yellow-400/30 rounded-3xl p-5 text-yellow-200 font-semibold";
-  }
-
-  if (type === "error") {
-    box.className =
-      "mt-8 bg-red-400/10 border border-red-400/30 rounded-3xl p-5 text-red-200 font-semibold";
-  }
 }
 
 function mapSportmonksToGames(data) {
@@ -202,8 +200,6 @@ function mapSportmonksToGames(data) {
 }
 
 async function loadSportmonksGames() {
-  updateApiStatus("🔄 A ligar à Sportmonks API...");
-
   try {
     const response = await fetch(SUPABASE_FUNCTION_URL);
     const data = await response.json();
@@ -216,31 +212,17 @@ async function loadSportmonksGames() {
       allGames = realGames;
       games = realGames;
       visibleCount = 12;
-
       renderGames(games);
-
-      updateApiStatus(
-        `✅ API ligada: ${realGames.length} jogos reais encontrados. A mostrar os primeiros 12.`,
-        "success"
-      );
     } else {
       games = [...demoGames];
       visibleCount = 12;
       renderGames(games);
-
-      updateApiStatus(
-        "⚠️ API ligada, mas o plano grátis não devolveu jogos para este endpoint. A mostrar demo.",
-        "warning"
-      );
     }
   } catch (error) {
     console.error("Erro Sportmonks:", error);
-
     games = [...demoGames];
     visibleCount = 12;
     renderGames(games);
-
-    updateApiStatus("❌ Erro ao ligar à Sportmonks. A mostrar demo.", "error");
   }
 }
 

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Detalhes do Jogo | MATCHORA™</title>
+  <meta name="description" content="Detalhes do jogo na MATCHORA™ — transmissão oficial, horário, odds e alertas." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css?v=7" />
+</head>
+
+<body class="text-white font-sans">
+
+  <header class="bg-[#050816]/80 backdrop-blur border-b border-white/10">
+    <div class="max-w-7xl mx-auto p-5 flex justify-between items-center">
+      <a href="index.html">
+        <h1 class="text-2xl font-black">⚽ MATCHORA™</h1>
+        <p class="text-xs text-cyan-300 font-bold">One Search. Every Match.</p>
+      </a>
+
+      <nav class="hidden md:flex gap-6 text-sm text-gray-200 font-semibold">
+        <a href="index.html#jogos">Jogos</a>
+        <a href="index.html#odds">Odds</a>
+        <a href="index.html#ai">Matchora AI</a>
+        <a href="index.html#pro">Pro</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-5 py-12">
+
+    <a href="index.html" class="text-cyan-300 font-bold">← Voltar aos jogos</a>
+
+    <section class="mt-8 bg-white/10 border border-white/10 rounded-3xl p-8 shadow-2xl">
+      <p class="inline-block bg-cyan-400 text-slate-950 px-4 py-2 rounded-xl font-black">
+        Fixture real
+      </p>
+
+      <h2 id="matchTitle" class="text-4xl md:text-6xl font-black mt-6">
+        Detalhes do jogo
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-4 mt-8">
+        <div class="bg-black/30 rounded-2xl p-5">
+          <p class="text-gray-400 text-sm">Horário</p>
+          <p id="matchTime" class="text-2xl font-black mt-2">A confirmar</p>
+        </div>
+
+        <div class="bg-black/30 rounded-2xl p-5">
+          <p class="text-gray-400 text-sm">Competição</p>
+          <p id="matchLeague" class="text-2xl font-black mt-2">Liga</p>
+        </div>
+
+        <div class="bg-black/30 rounded-2xl p-5">
+          <p class="text-gray-400 text-sm">Estado</p>
+          <p id="matchStatus" class="text-2xl font-black mt-2">Agendado</p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-5 mt-8">
+        <div class="bg-black/30 rounded-3xl p-6">
+          <h3 class="text-2xl font-black">📺 Onde assistir</h3>
+          <p class="text-gray-300 mt-3">
+            Fonte oficial por país. A MATCHORA™ não transmite jogos nem partilha streams ilegais.
+          </p>
+          <button class="neon-button mt-5 px-6 py-3 rounded-2xl font-black">
+            Ver fontes oficiais
+          </button>
+        </div>
+
+        <div class="bg-black/30 rounded-3xl p-6">
+          <h3 class="text-2xl font-black">📊 Odds</h3>
+          <p class="text-gray-300 mt-3">
+            Odds brevemente disponíveis através de operadores autorizados.
+          </p>
+          <div class="mt-5 bg-white/10 rounded-2xl p-4 text-cyan-300 font-black">
+            1X2 • Golos • Ambas marcam
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 bg-cyan-400/10 border border-cyan-400/30 rounded-3xl p-6">
+        <h3 class="text-2xl font-black">🔔 Alertas</h3>
+        <p class="text-gray-300 mt-3">
+          Recebe aviso antes do início do jogo, alteração de horário, confirmação de canal e movimento de odds.
+        </p>
+        <button class="mt-5 bg-white/10 border border-white/10 px-6 py-3 rounded-2xl font-black">
+          Alertar-me
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="mt-16 border-t border-white/10 p-8 text-center text-gray-400 bg-[#050816]/70">
+    <strong class="text-white">MATCHORA™</strong> — One Search. Every Match.
+  </footer>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+
+    document.getElementById("matchTitle").textContent =
+      params.get("name") || "Detalhes do jogo";
+
+    document.getElementById("matchTime").textContent =
+      params.get("time") || "A confirmar";
+
+    document.getElementById("matchLeague").textContent =
+      params.get("league") || "Liga";
+
+    document.getElementById("matchStatus").textContent =
+      params.get("status") || "Agendado";
+  </script>
+
+</body>
+</html>

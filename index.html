@@ -24,6 +24,7 @@
 
       <nav class="hidden md:flex gap-6 text-sm text-gray-200 font-semibold">
         <a href="#jogos">Jogos</a>
+        <a href="live.html">Ao Vivo</a>
         <a href="#trending">Trending</a>
         <a href="#odds">Odds</a>
         <a href="#ai">Matchora AI</a>
@@ -33,6 +34,7 @@
 
     <div id="mobileMenu" class="hidden md:hidden px-5 pb-5 space-y-3 text-gray-200 font-semibold">
       <a href="#jogos" class="block">Jogos</a>
+      <a href="live.html" class="block">Ao Vivo</a>
       <a href="#trending" class="block">Trending</a>
       <a href="#odds" class="block">Odds</a>
       <a href="#ai" class="block">Matchora AI</a>
@@ -120,7 +122,7 @@
     <section id="jogos" class="mt-10">
       <div class="bg-white/5 border border-white/10 rounded-3xl p-3 inline-flex gap-3 flex-wrap">
         <button onclick="setTab(this, 'Jogos de Hoje')" class="tab active">Hoje</button>
-        <button onclick="setTab(this, 'Jogos Ao Vivo')" class="tab">Ao Vivo</button>
+        <button onclick="window.location.href='live.html'" class="tab">Ao Vivo</button>
         <button onclick="setTab(this, 'Jogos de Amanhã')" class="tab">Amanhã</button>
         <button onclick="setTab(this, 'Odds em Movimento')" class="tab">Odds em Movimento</button>
       </div>
@@ -179,6 +181,6 @@
     <span class="text-sm">Watch smarter. Bet responsibly. A MATCHORA™ não transmite jogos nem partilha streams ilegais.</span>
   </footer>
 
-  <script src="app.js?v=11"></script>
+  <script src="app.js?v=12"></script>
 </body>
 </html>
